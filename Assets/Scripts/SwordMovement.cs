@@ -36,7 +36,7 @@ public class SwordMovement : MonoBehaviour
         //Increases position by translation val which is going to the right and the down times the speed
         //Rotates the the z by spin and the speed.
         transform.position += translationVal * translationSpeed * Time.deltaTime;
-        //transform.Rotate(spin * rotationSpeed * Time.deltaTime);
+        transform.Rotate(spin * rotationSpeed * Time.deltaTime);
     }
 
 

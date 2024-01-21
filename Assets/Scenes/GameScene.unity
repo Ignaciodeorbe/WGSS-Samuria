@@ -281,22 +281,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.84, y: 9.34}
   m_EdgeRadius: 0
---- !u!114 &630414492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 630414484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01025a50cba211145aaed7d553daac56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  srender_hands: {fileID: 1567416390}
-  srender_sword: {fileID: 630414486}
-  srender_yinyang: {fileID: 1767418785}
-  movement: {fileID: 630414485}
 --- !u!50 &630414493
 Rigidbody2D:
   serializedVersion: 4
@@ -439,11 +423,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8894764646523455990, guid: b35c93ea992f6bd43b3555607efb0b65, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.44
+      value: -12.44
       objectReference: {fileID: 0}
     - target: {fileID: 8894764646523455990, guid: b35c93ea992f6bd43b3555607efb0b65, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.87
+      value: 2.41
       objectReference: {fileID: 0}
     - target: {fileID: 8894764646523455990, guid: b35c93ea992f6bd43b3555607efb0b65, type: 3}
       propertyPath: m_LocalPosition.z
@@ -484,9 +468,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 377857529978754506, guid: b35c93ea992f6bd43b3555607efb0b65, type: 3}
       insertIndex: -1
       addedObject: {fileID: 630414491}
-    - targetCorrespondingSourceObject: {fileID: 377857529978754506, guid: b35c93ea992f6bd43b3555607efb0b65, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 630414492}
     - targetCorrespondingSourceObject: {fileID: 377857529978754506, guid: b35c93ea992f6bd43b3555607efb0b65, type: 3}
       insertIndex: -1
       addedObject: {fileID: 630414493}
@@ -616,4 +597,54 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5.79
+  m_Radius: 4.58
+--- !u!1 &1852772476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1852772478}
+  - component: {fileID: 1852772477}
+  m_Layer: 0
+  m_Name: Collisions Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1852772477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852772476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01025a50cba211145aaed7d553daac56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  srender_hands: {fileID: 1567416390}
+  srender_sword: {fileID: 630414486}
+  bColi2d_sword: {fileID: 630414491}
+  cirColi2d_yinyang: {fileID: 1767418787}
+  srender_yinyang: {fileID: 1767418785}
+  movement: {fileID: 630414485}
+--- !u!4 &1852772478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852772476}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.1208148, y: 0.2327404, z: 4.120656}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
