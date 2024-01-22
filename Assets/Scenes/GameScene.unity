@@ -245,7 +245,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.468
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -348,6 +348,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 348a7eb2fd9103a43915bbe42969ba7a, type: 3}
   - {fileID: 8300000, guid: 9ffbc09d77cf50a4eb30442fca997a05, type: 3}
   scream: {fileID: 8300000, guid: fd9a35dcd6dfd0a439e50dd138762e73, type: 3}
+  collisionManagerScript: {fileID: 0}
 --- !u!4 &551439530
 Transform:
   m_ObjectHideFlags: 0
@@ -639,11 +640,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8894764646523455990, guid: b35c93ea992f6bd43b3555607efb0b65, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.44
+      value: -11.88
       objectReference: {fileID: 0}
     - target: {fileID: 8894764646523455990, guid: b35c93ea992f6bd43b3555607efb0b65, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.41
+      value: 2.05
       objectReference: {fileID: 0}
     - target: {fileID: 8894764646523455990, guid: b35c93ea992f6bd43b3555607efb0b65, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1117,6 +1118,8 @@ MonoBehaviour:
   srender_sword: {fileID: 630414486}
   bColi2d_sword: {fileID: 630414491}
   cirColi2d_yinyang: {fileID: 1767418787}
+  go_sword: {fileID: 630414484}
+  manager: {fileID: 551439529}
   srender_yinyang: {fileID: 1767418785}
   movement: {fileID: 630414485}
 --- !u!4 &1852772478

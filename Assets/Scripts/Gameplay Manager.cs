@@ -17,14 +17,23 @@ public class GameplayManager : MonoBehaviour
     [SerializeField]
     AudioClip scream;
 
+    [SerializeField]
+    CollisionManager collisionManagerScript;
+
     float timerScale = 3;
 
     float soundTimer = 1;
     int soundCounter = 0;
 
+    float idleTimer = 2;
+
     int level = 0;
 
     bool started = false;
+
+    States currentState;
+
+    public States CurrentState { set { currentState = value; } get { return currentState; } }
 
     // Start is called before the first frame update
     void Start()
@@ -35,31 +44,56 @@ public class GameplayManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (started)
+        switch (currentState)
         {
-            soundTimer -= Time.deltaTime;
+            case States.Idle:
+                if (started)
+                {
+                    soundTimer -= Time.deltaTime;
 
-            if(soundTimer < 0)
-            {
-                
-                audioSource.Play();
-                if (soundCounter == gameplaySounds.Count - 1)
-                {
-                    swordMovementScript.CanMove = true;
+                    if (soundTimer < 0)
+                    {
+
+                        audioSource.PlayOneShot(audioSource.clip);
+                        if (soundCounter == gameplaySounds.Count - 1)
+                        {
+                            swordMovementScript.CanMove = true;
+                        }
+                        else
+                        {
+                            soundCounter++;
+                            audioSource.clip = gameplaySounds[soundCounter];
+                            SetTimer();
+                        }
+                    }
+
                 }
-                else
+                idleTimer = 3;
+                break;
+
+
+            case States.SwordClapped:
+                idleTimer -= Time.deltaTime;
+
+                if (idleTimer < 0)
                 {
-                    soundCounter++;
-                    audioSource.clip = gameplaySounds[soundCounter];
-                    SetTimer();
+                    NextLevel();
                 }
-            }
+                break;
+
+
+            case States.Dead:
+
+                break;
+
         }
+        
     }
 
     public void SetTimer()
     {
-        soundTimer *= timerScale + Random.Range(0.5f,0.8f); 
+        soundTimer = timerScale;
+        soundTimer += Random.Range(0.5f,0.8f); 
     }
 
     public void NextLevel()
@@ -67,12 +101,16 @@ public class GameplayManager : MonoBehaviour
         level++;
         MakeSounds();
         SetTimer();
+        swordMovementScript.ResetInfo();
         started= true;
+        currentState = States.Idle;
+        collisionManagerScript.CanCatch = true;
     }
 
     public void MakeSounds()
     {
         soundCounter = 0;
+        gameplaySounds.Clear();
 
         for(int i = 0; i < level; i++)
         {
