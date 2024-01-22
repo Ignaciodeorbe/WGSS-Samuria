@@ -348,7 +348,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 348a7eb2fd9103a43915bbe42969ba7a, type: 3}
   - {fileID: 8300000, guid: 9ffbc09d77cf50a4eb30442fca997a05, type: 3}
   scream: {fileID: 8300000, guid: fd9a35dcd6dfd0a439e50dd138762e73, type: 3}
-  collisionManagerScript: {fileID: 0}
+  collisionManagerScript: {fileID: 1852772477}
 --- !u!4 &551439530
 Transform:
   m_ObjectHideFlags: 0
@@ -632,7 +632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 651278573136454180, guid: b35c93ea992f6bd43b3555607efb0b65, type: 3}
       propertyPath: translationSpeed
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8894764646523455990, guid: b35c93ea992f6bd43b3555607efb0b65, type: 3}
       propertyPath: m_RootOrder

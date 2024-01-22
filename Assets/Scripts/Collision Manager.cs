@@ -71,6 +71,8 @@ public class CollisionManager : MonoBehaviour
         {
             srender_hands.enabled = false;
             srender_yinyang.enabled = true;
+            movement.TranslationSpeed = 15;
+            movement.RotationSpeed = 100;
         }
     }
 }
