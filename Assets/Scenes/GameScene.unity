@@ -341,6 +341,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 476ea550f0b848a4a8df958385dc2e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swordCaught:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1852772477}
+        m_TargetAssemblyTypeName: CollisionManager, Assembly-CSharp
+        m_MethodName: ResetCollisionInfo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 630414485}
+        m_TargetAssemblyTypeName: SwordMovement, Assembly-CSharp
+        m_MethodName: ResetInfo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1767418789}
+        m_TargetAssemblyTypeName: YinYang, Assembly-CSharp
+        m_MethodName: RandomScale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   swordMovementScript: {fileID: 630414485}
   audioSource: {fileID: 551439528}
   listSounds:
@@ -348,7 +387,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 348a7eb2fd9103a43915bbe42969ba7a, type: 3}
   - {fileID: 8300000, guid: 9ffbc09d77cf50a4eb30442fca997a05, type: 3}
   scream: {fileID: 8300000, guid: fd9a35dcd6dfd0a439e50dd138762e73, type: 3}
-  collisionManagerScript: {fileID: 1852772477}
 --- !u!4 &551439530
 Transform:
   m_ObjectHideFlags: 0

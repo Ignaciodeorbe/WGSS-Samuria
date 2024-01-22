@@ -50,12 +50,11 @@ public class SwordMovement : MonoBehaviour
 
 
     /// <summary>
-    /// Resets the position of the sword
+    /// Resets the position of the sword and makes it so it
     /// </summary>
     public void ResetInfo()
     {
         transform.position = new Vector3(-13,2,0);
         transform.rotation = Quaternion.Euler(0,0,-33);
-        canMove = false;
     } 
 }

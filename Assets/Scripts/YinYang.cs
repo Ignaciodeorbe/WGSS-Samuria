@@ -26,7 +26,7 @@ public class YinYang : MonoBehaviour
     }
 
     //Function to change size of the YinYang symbol each time game is refreshed
-    void RandomScale()
+    public void RandomScale()
     {
         // Generate a random scale within the specified bounds
         float randomScale = Random.Range(scaleBounds.x, scaleBounds.y);

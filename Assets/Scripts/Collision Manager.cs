@@ -1,10 +1,16 @@
+//Made by Jake Wardell
+//Handles collision between sword and yin yang
+
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CollisionManager : MonoBehaviour
 {
+    
+
     [SerializeField]
     private SpriteRenderer srender_hands;
 
@@ -29,19 +35,18 @@ public class CollisionManager : MonoBehaviour
 
     bool canCatch = true;
 
-    
 
     public bool CanCatch { set { canCatch = value; } }
 
     [SerializeField]
     SwordMovement movement;
+
     // Update is called once per frame
     void Update()
     {
         if (bColi2d_sword.IsTouching(cirColi2d_yinyang) && Input.GetKeyDown(KeyCode.Space) && canCatch)
         {
-            movement.TranslationSpeed = 0;
-            movement.RotationSpeed = 0;
+            movement.CanMove = false;
             srender_hands.enabled = true;
             srender_yinyang.enabled = false;
             canCatch = false;
@@ -67,13 +72,14 @@ public class CollisionManager : MonoBehaviour
             manager.CurrentState = States.Dead;
         }
         
-        if(manager.CurrentState == States.Idle && srender_hands.enabled == true && srender_yinyang.enabled == false && canCatch == true)
-        {
-            srender_hands.enabled = false;
-            srender_yinyang.enabled = true;
-            movement.TranslationSpeed = 15;
-            movement.RotationSpeed = 100;
-        }
+        
+    }
+
+    public void ResetCollisionInfo()
+    {
+        srender_hands.enabled = false;
+        srender_yinyang.enabled = true;
+        canCatch = true;
     }
 }
 

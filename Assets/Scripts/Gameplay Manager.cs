@@ -1,8 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+public delegate void OnGameOver();
+
 public class GameplayManager : MonoBehaviour
 {
+
+    public UnityEvent swordCaught;
+
     [SerializeField]
     SwordMovement swordMovementScript;
 
@@ -17,8 +24,7 @@ public class GameplayManager : MonoBehaviour
     [SerializeField]
     AudioClip scream;
 
-    [SerializeField]
-    CollisionManager collisionManagerScript;
+   
 
     float timerScale = 3;
 
@@ -77,6 +83,7 @@ public class GameplayManager : MonoBehaviour
 
                 if (idleTimer < 0)
                 {
+                    swordCaught.Invoke();
                     NextLevel();
                 }
                 break;
@@ -101,10 +108,8 @@ public class GameplayManager : MonoBehaviour
         level++;
         MakeSounds();
         SetTimer();
-        swordMovementScript.ResetInfo();
         started= true;
         currentState = States.Idle;
-        collisionManagerScript.CanCatch = true;
     }
 
     public void MakeSounds()
