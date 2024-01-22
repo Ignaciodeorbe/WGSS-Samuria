@@ -1,28 +1,37 @@
+//Created by Jake Wardell
+//Handels sword movement
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SwordMovement : MonoBehaviour
 {
+    //Scalers for both the speed of the sword movement and the rotation of the sword
     [SerializeField]
     int translationSpeed = 1;
     [SerializeField]
     float rotationSpeed = 0.25f;
 
+    private bool canMove = false;
 
     Vector3 translationVal = new Vector3(1.5f,-1,0);
 
-    Vector3 spin = new Vector3(0,0,-.05f);
+    Vector3 spin = new Vector3(0,0,-1f);
 
     public int TranslationSpeed { set { translationSpeed = value; } }
     
     public float RotationSpeed { set { rotationSpeed = value; } }
 
 
+    public bool CanMove { set { canMove = value;} }
+
     // Update is called once per frame
     void Update()
     {
-        MoveSword();   
+        if (canMove)
+        {
+            MoveSword();
+        }
     }
 
     /// <summary>
@@ -47,7 +56,5 @@ public class SwordMovement : MonoBehaviour
     {
         transform.position = new Vector3(-13,2,0);
         transform.rotation = Quaternion.Euler(0,0,-33);
-        rotationSpeed = 0.25f;
-        translationSpeed = 1;
     } 
 }

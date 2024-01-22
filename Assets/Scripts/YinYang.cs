@@ -1,3 +1,6 @@
+//Created by Owen Beck
+//Handles yinyang spinning and resizing
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
