@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public delegate void OnGameOver();
 
@@ -24,16 +25,17 @@ public class GameplayManager : MonoBehaviour
     [SerializeField]
     AudioClip scream;
 
-   
+    [SerializeField]
+    GameObject resetButton;
 
-    float timerScale = 3;
+    float timerScale = 2.3f;
 
     float soundTimer = 1;
     int soundCounter = 0;
 
-    float idleTimer = 2;
+    float idleTimer = 1.4f;
 
-    int level = 0;
+    int level;
 
     bool started = false;
 
@@ -64,6 +66,7 @@ public class GameplayManager : MonoBehaviour
                         if (soundCounter == gameplaySounds.Count - 1)
                         {
                             swordMovementScript.CanMove = true;
+                            audioSource.clip = null;
                         }
                         else
                         {
@@ -74,7 +77,7 @@ public class GameplayManager : MonoBehaviour
                     }
 
                 }
-                idleTimer = 3;
+                idleTimer = 1.4f;
                 break;
 
 
@@ -90,7 +93,7 @@ public class GameplayManager : MonoBehaviour
 
 
             case States.Dead:
-
+                resetButton.SetActive(true);
                 break;
 
         }
@@ -117,7 +120,7 @@ public class GameplayManager : MonoBehaviour
         soundCounter = 0;
         gameplaySounds.Clear();
 
-        for(int i = 0; i < level; i++)
+        for(int i = 0; i < Random.Range(0,3); i++)
         {
             gameplaySounds.Add(listSounds[Random.Range(0, listSounds.Count)]);
         }

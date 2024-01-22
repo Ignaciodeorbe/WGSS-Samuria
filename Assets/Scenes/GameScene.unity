@@ -245,7 +245,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.468
+  m_Volume: 0.755
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -386,7 +386,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8c3bd33dcaab23f469c6767061af75e2, type: 3}
   - {fileID: 8300000, guid: 348a7eb2fd9103a43915bbe42969ba7a, type: 3}
   - {fileID: 8300000, guid: 9ffbc09d77cf50a4eb30442fca997a05, type: 3}
-  scream: {fileID: 8300000, guid: fd9a35dcd6dfd0a439e50dd138762e73, type: 3}
+  scream: {fileID: 8300000, guid: c7951e1930b9b92489e39f8bc90b433d, type: 3}
+  resetButton: {fileID: 1649976168}
 --- !u!4 &551439530
 Transform:
   m_ObjectHideFlags: 0
@@ -466,7 +467,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.84, y: 9.34}
+  m_Size: {x: 1.17, y: 9.34}
   m_EdgeRadius: 0
 --- !u!50 &630414493
 Rigidbody2D:
@@ -670,7 +671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 651278573136454180, guid: b35c93ea992f6bd43b3555607efb0b65, type: 3}
       propertyPath: translationSpeed
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8894764646523455990, guid: b35c93ea992f6bd43b3555607efb0b65, type: 3}
       propertyPath: m_RootOrder
@@ -937,7 +938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1649976169
 RectTransform:
   m_ObjectHideFlags: 0
@@ -955,8 +956,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -523.29, y: -294.59}
-  m_SizeDelta: {x: 51.781, y: 19.73}
+  m_AnchoredPosition: {x: -531.04, y: -298.24}
+  m_SizeDelta: {x: 444.5948, y: 169.403}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1649976170
 MonoBehaviour:
