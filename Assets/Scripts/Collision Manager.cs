@@ -9,10 +9,14 @@ using UnityEngine.Events;
 
 public class CollisionManager : MonoBehaviour
 {
-    
+    [SerializeField]
+    private YinYang symbol;
 
     [SerializeField]
     private SpriteRenderer srender_hands;
+
+    [SerializeField]
+    private SpriteRenderer srender_severedHands;
 
     [SerializeField]
     private SpriteRenderer srender_sword;
@@ -69,6 +73,8 @@ public class CollisionManager : MonoBehaviour
         }
 
         if(go_sword.transform.position.x > 7 && go_sword.transform.position.y < -10) {
+            srender_severedHands.enabled = true; //Could use some optimization but I'm leaving this here for now -Owen
+            srender_hands.enabled = false;
             manager.CurrentState = States.Dead;
         }
         
@@ -78,8 +84,10 @@ public class CollisionManager : MonoBehaviour
     public void ResetCollisionInfo()
     {
         srender_hands.enabled = false;
+        srender_severedHands.enabled = false;
         srender_yinyang.enabled = true;
         canCatch = true;
+        symbol.RandomPosition(); //Moves position of the symbol each round
     }
 }
 
