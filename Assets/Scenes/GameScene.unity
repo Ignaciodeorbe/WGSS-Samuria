@@ -1124,6 +1124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 40
   scaleBounds: {x: 0.08, y: 0.25}
+  posXBounds: {x: 1, y: 8}
+  posYBounds: {x: -3, y: 1}
 --- !u!1001 &1834797784
 PrefabInstance:
   m_ObjectHideFlags: 0

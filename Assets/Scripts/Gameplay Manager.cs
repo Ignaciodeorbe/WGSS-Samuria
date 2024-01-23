@@ -28,6 +28,9 @@ public class GameplayManager : MonoBehaviour
     [SerializeField]
     GameObject resetButton;
 
+    [SerializeField]
+    GameObject bloodSplatter; //Owen Addition
+
     float timerScale = 2.3f;
 
     float soundTimer = 1;
@@ -55,6 +58,7 @@ public class GameplayManager : MonoBehaviour
         switch (currentState)
         {
             case States.Idle:
+                bloodSplatter.SetActive(false);
                 if (started)
                 {
                     soundTimer -= Time.deltaTime;
@@ -82,6 +86,7 @@ public class GameplayManager : MonoBehaviour
 
 
             case States.SwordClapped:
+                bloodSplatter.SetActive(false);
                 idleTimer -= Time.deltaTime;
 
                 if (idleTimer < 0)
@@ -94,6 +99,7 @@ public class GameplayManager : MonoBehaviour
 
             case States.Dead:
                 resetButton.SetActive(true);
+                bloodSplatter.SetActive(true);  //Show blood
                 break;
 
         }
