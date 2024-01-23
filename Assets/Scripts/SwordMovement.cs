@@ -54,7 +54,7 @@ public class SwordMovement : MonoBehaviour
     /// </summary>
     public void ResetInfo()
     {
-        transform.position = new Vector3(-13,2,0);
+        transform.position = new Vector3(-13,2,10);
         transform.rotation = Quaternion.Euler(0,0,-33);
     } 
 }
