@@ -1,3 +1,5 @@
+//Created by: Owen Beck & Jake Wardell
+//Moves the group of crows.
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,14 +7,16 @@ using UnityEngine;
 public class CrowMovement : MonoBehaviour
 {
     [SerializeField]
-    private GameObject crow;
-
-    [SerializeField]
     private int speed;
 
-    private Vector3 dir = Vector3.left;
 
+    //Sets the position when the object is instantiated
+    public void Awake()
+    {
+        transform.position = new Vector3(-30,0,12);
+    }
 
+    //Updates the position of the object
     void Update()
     {
         MoveCrow();
@@ -22,17 +26,16 @@ public class CrowMovement : MonoBehaviour
      public void MoveCrow()
     {
         //Calculate left boundary of the screen
-        float leftBoundary = Camera.main.ScreenToWorldPoint(new Vector3(-10, 0, 0)).x;
+        //float leftBoundary = Camera.main.ScreenToWorldPoint(new Vector3(40, 0, 0)).x;
 
-        transform.Translate(dir * speed * Time.deltaTime);
+        //Moves the crows based on direction * the speed * the speed
+        transform.Translate(Vector3.left * speed * Time.deltaTime);
 
-        if (transform.position.x <= leftBoundary)
+        //If the birds go out of bounds
+        if (transform.position.x >= 16)
         {
-            dir = Vector3.right;
-        }
-        else if (transform.position.x >= leftBoundary)
-        {
-            dir = Vector3.left;
+            //Destroys this gameObject
+            Destroy(gameObject);
         }
     }
 }

@@ -39,6 +39,9 @@ public class CollisionManager : MonoBehaviour
 
     bool canCatch = true;
 
+    [SerializeField]
+    GameObject bloodSplatter; //Owen Addition
+
 
     public bool CanCatch { set { canCatch = value; }  get { return canCatch; } }
 
@@ -77,8 +80,15 @@ public class CollisionManager : MonoBehaviour
             if (canCatch == false)
             {
                 srender_severedHands.enabled = true; //Could use some optimization but I'm leaving this here for now -Owen
+                bloodSplatter.transform.position = new Vector3(6.5f, -1.45f, 10);
+            }
+            else
+            {
+                bloodSplatter.transform.position = new Vector3 (8, -2, 10);
             }
             srender_hands.enabled = false;
+            bloodSplatter.SetActive(true);  //Show blood
+
             manager.CurrentState = States.Dead;
         }
         

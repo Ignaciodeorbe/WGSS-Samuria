@@ -2,34 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public delegate void OnGameOver();
 
 public class GameplayManager : MonoBehaviour
 {
-
+    //Event for when the sword is caught used for changing states
     public UnityEvent swordCaught;
 
+    //Sword movement script
     [SerializeField]
     SwordMovement swordMovementScript;
 
+    //The audio source
     [SerializeField]
     AudioSource audioSource;
 
+    //Text for the level
+    [SerializeField]
+    Text levelText;
+
+    //Contains all possible sounds in the game
     [SerializeField]
     List<AudioClip> listSounds = new List<AudioClip>();
 
+    //The sounds that will play per level
     List<AudioClip> gameplaySounds = new List<AudioClip>();
 
+    //List of all moveable objects
+    [SerializeField]
+    List<GameObject> gameplayObjects = new List<GameObject>();
+
+    //The sound before the sword comes down
     [SerializeField]
     AudioClip scream;
 
+    //Temp Reset button
     [SerializeField]
     GameObject resetButton;
-
-    [SerializeField]
-    GameObject bloodSplatter; //Owen Addition
+ 
+    
 
     float timerScale = 2.3f;
 
@@ -38,7 +52,7 @@ public class GameplayManager : MonoBehaviour
 
     float idleTimer = 1.4f;
 
-    int level;
+    int level = 0;
 
     bool started = false;
 
@@ -63,7 +77,6 @@ public class GameplayManager : MonoBehaviour
         switch (currentState)
         {
             case States.Idle:
-                bloodSplatter.SetActive(false);
                 if (started)
                 {
                     soundTimer -= Time.deltaTime;
@@ -91,7 +104,6 @@ public class GameplayManager : MonoBehaviour
 
 
             case States.SwordClapped:
-                bloodSplatter.SetActive(false);
                 idleTimer -= Time.deltaTime;
 
                 if (idleTimer < 0)
@@ -104,7 +116,6 @@ public class GameplayManager : MonoBehaviour
 
             case States.Dead:
                 resetButton.SetActive(true);
-                bloodSplatter.SetActive(true);  //Show blood
                 break;
 
         }
@@ -133,6 +144,7 @@ public class GameplayManager : MonoBehaviour
             curve = 0;
         }
 
+        levelText.text = "Act: " + level;
         currentState = States.Idle;
     }
 
