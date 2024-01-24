@@ -40,7 +40,7 @@ public class CollisionManager : MonoBehaviour
     bool canCatch = true;
 
 
-    public bool CanCatch { set { canCatch = value; } }
+    public bool CanCatch { set { canCatch = value; }  get { return canCatch; } }
 
     [SerializeField]
     SwordMovement movement;
@@ -73,7 +73,11 @@ public class CollisionManager : MonoBehaviour
         }
 
         if(go_sword.transform.position.x > 7 && go_sword.transform.position.y < -10) {
-            srender_severedHands.enabled = true; //Could use some optimization but I'm leaving this here for now -Owen
+            //Makes it so only if you have clapped will the severed hands appear.
+            if (canCatch == false)
+            {
+                srender_severedHands.enabled = true; //Could use some optimization but I'm leaving this here for now -Owen
+            }
             srender_hands.enabled = false;
             manager.CurrentState = States.Dead;
         }
