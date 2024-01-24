@@ -42,6 +42,10 @@ public class GameplayManager : MonoBehaviour
 
     bool started = false;
 
+    int curve;
+
+    public int Curve { get { return curve; } }
+
     States currentState;
 
     public States CurrentState { set { currentState = value; } get { return currentState; } }
@@ -50,6 +54,7 @@ public class GameplayManager : MonoBehaviour
     void Start()
     {
         NextLevel();
+        curve = 7;
     }
 
     // Update is called once per frame
@@ -115,9 +120,19 @@ public class GameplayManager : MonoBehaviour
     public void NextLevel()
     {
         level++;
+        
         MakeSounds();
         SetTimer();
         started= true;
+
+        curve++;
+
+        if (curve % swordMovementScript.TranslationSpeed == 0)
+        {
+            swordMovementScript.TranslationSpeed++;
+            curve = 0;
+        }
+
         currentState = States.Idle;
     }
 

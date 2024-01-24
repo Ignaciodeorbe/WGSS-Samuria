@@ -18,7 +18,9 @@ public class SwordMovement : MonoBehaviour
 
     Vector3 spin = new Vector3(0,0,-1f);
 
-    public int TranslationSpeed { set { translationSpeed = value; } }
+    int curve = 0;
+
+    public int TranslationSpeed { get { return translationSpeed; } set { translationSpeed = value; } }
     
     public float RotationSpeed { set { rotationSpeed = value; } }
 
@@ -56,5 +58,6 @@ public class SwordMovement : MonoBehaviour
     {
         transform.position = new Vector3(-13,2,10);
         transform.rotation = Quaternion.Euler(0,0,-33);
+        
     } 
 }
