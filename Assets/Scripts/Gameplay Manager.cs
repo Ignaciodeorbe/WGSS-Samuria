@@ -149,5 +149,7 @@ public class GameplayManager : MonoBehaviour
         gameplaySounds.Add(scream);
 
         audioSource.clip = gameplaySounds[soundCounter];
+
+
     }
 }
