@@ -33,7 +33,8 @@ public class GameplayManager : MonoBehaviour
 
     //List of all moveable objects
     [SerializeField]
-    List<GameObject> gameplayObjects = new List<GameObject>();
+    List<GameObject> ListObjects = new List<GameObject>();
+    List<GameObject> gameObjectList = new List<GameObject>();
 
     //The sound before the sword comes down
     [SerializeField]
@@ -85,6 +86,11 @@ public class GameplayManager : MonoBehaviour
                     {
 
                         audioSource.PlayOneShot(audioSource.clip);
+                        if (soundCounter < gameObjectList.Count)
+                        {
+                            Debug.Log("I was called!");
+                            Instantiate(gameObjectList[soundCounter], new Vector3(-30, 0,0), Quaternion.identity);
+                        }
                         if (soundCounter == gameplaySounds.Count - 1)
                         {
                             swordMovementScript.CanMove = true;
@@ -152,10 +158,13 @@ public class GameplayManager : MonoBehaviour
     {
         soundCounter = 0;
         gameplaySounds.Clear();
+        gameObjectList.Clear();
+        int randVal = Random.Range(0, listSounds.Count);
 
-        for(int i = 0; i < Random.Range(0,3); i++)
+        for (int i = 0; i < Random.Range(0,3); i++)
         {
-            gameplaySounds.Add(listSounds[Random.Range(0, listSounds.Count)]);
+            gameplaySounds.Add(listSounds[randVal]);
+            gameObjectList.Add(ListObjects[randVal]);
         }
 
         gameplaySounds.Add(scream);
