@@ -66,7 +66,7 @@ public class YinYang : MonoBehaviour
         else
         {
             //Scale the yin yang smaller
-            randomScale = Random.Range(0.08f, 0.12f);
+            randomScale = Random.Range(0.01f, 0.12f);
         }
 
         // Set the local scale of the object to the random scale
