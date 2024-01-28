@@ -1399,9 +1399,57 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1289578039504176842, guid: 996a3113f3431db4e914382da3856dc0, type: 3}
+      propertyPath: parallaxValue
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417307355176223005, guid: 996a3113f3431db4e914382da3856dc0, type: 3}
+      propertyPath: parallaxValue
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720289875896370716, guid: 996a3113f3431db4e914382da3856dc0, type: 3}
+      propertyPath: parallaxValue
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810908307136373870, guid: 996a3113f3431db4e914382da3856dc0, type: 3}
+      propertyPath: parallaxValue
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318469876944057081, guid: 996a3113f3431db4e914382da3856dc0, type: 3}
+      propertyPath: parallaxValue
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 2883281749808297730, guid: 996a3113f3431db4e914382da3856dc0, type: 3}
       propertyPath: m_Name
       value: BackGround
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558006864339024872, guid: 996a3113f3431db4e914382da3856dc0, type: 3}
+      propertyPath: parallaxValue
+      value: 0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377500856654125773, guid: 996a3113f3431db4e914382da3856dc0, type: 3}
+      propertyPath: parallaxValue
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430153448660948994, guid: 996a3113f3431db4e914382da3856dc0, type: 3}
+      propertyPath: parallaxValue
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734206742496599319, guid: 996a3113f3431db4e914382da3856dc0, type: 3}
+      propertyPath: parallaxValue
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082529575119275825, guid: 996a3113f3431db4e914382da3856dc0, type: 3}
+      propertyPath: parallaxValue
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7677457170028971964, guid: 996a3113f3431db4e914382da3856dc0, type: 3}
+      propertyPath: parallaxValue
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159706309711055012, guid: 996a3113f3431db4e914382da3856dc0, type: 3}
+      propertyPath: parallaxValue
+      value: 0.35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
