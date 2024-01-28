@@ -43,6 +43,10 @@ public class GameplayManager : MonoBehaviour
     //Temp Reset button
     [SerializeField]
     GameObject resetButton;
+
+    //Countdown Animation
+    [SerializeField]
+    GameObject countdown;
  
     
 
@@ -68,6 +72,7 @@ public class GameplayManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playCountdown();
         NextLevel();
         curve = 7;
     }
@@ -172,5 +177,11 @@ public class GameplayManager : MonoBehaviour
         audioSource.clip = gameplaySounds[soundCounter];
 
 
+    }
+
+    //Method to play the coutdown animation then turn it off
+    public void playCountdown()
+    {
+        countdown.SetActive(true);
     }
 }
