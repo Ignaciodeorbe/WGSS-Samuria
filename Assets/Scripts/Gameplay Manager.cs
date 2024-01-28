@@ -47,8 +47,8 @@ public class GameplayManager : MonoBehaviour
     //Countdown Animation
     [SerializeField]
     GameObject countdown;
- 
-    
+
+
 
     float timerScale = 2.3f;
 
@@ -72,7 +72,7 @@ public class GameplayManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playCountdown();
+        StartCoroutine(CountdownCoroutine());   //Plays Countdown (Ideally should be moved somewhere so it plays before gameplay starts)
         NextLevel();
         curve = 7;
     }
@@ -94,7 +94,7 @@ public class GameplayManager : MonoBehaviour
                         if (soundCounter < gameObjectList.Count)
                         {
                             Debug.Log("I was called!");
-                            Instantiate(gameObjectList[soundCounter], new Vector3(-30, 0,0), Quaternion.identity);
+                            Instantiate(gameObjectList[soundCounter], new Vector3(-30, 0, 0), Quaternion.identity);
                         }
                         if (soundCounter == gameplaySounds.Count - 1)
                         {
@@ -130,22 +130,22 @@ public class GameplayManager : MonoBehaviour
                 break;
 
         }
-        
+
     }
 
     public void SetTimer()
     {
         soundTimer = timerScale;
-        soundTimer += Random.Range(0.5f,0.8f); 
+        soundTimer += Random.Range(0.5f, 0.8f);
     }
 
     public void NextLevel()
     {
         level++;
-        
+
         MakeSounds();
         SetTimer();
-        started= true;
+        started = true;
 
         curve++;
 
@@ -166,7 +166,7 @@ public class GameplayManager : MonoBehaviour
         gameObjectList.Clear();
         int randVal = Random.Range(0, listSounds.Count);
 
-        for (int i = 0; i < Random.Range(0,3); i++)
+        for (int i = 0; i < Random.Range(0, 3); i++)
         {
             gameplaySounds.Add(listSounds[randVal]);
             gameObjectList.Add(ListObjects[randVal]);
@@ -180,8 +180,18 @@ public class GameplayManager : MonoBehaviour
     }
 
     //Method to play the coutdown animation then turn it off
-    public void playCountdown()
+    IEnumerator CountdownCoroutine()
     {
+        // Activate the countdown
         countdown.SetActive(true);
+
+        // Play length of animation
+        float countdownDuration = 2.6f;
+
+        // Wait for the specified duration
+        yield return new WaitForSeconds(countdownDuration);
+
+        // Deactivate the countdown after the animation duration
+        countdown.SetActive(false);
     }
 }
