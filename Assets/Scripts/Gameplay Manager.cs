@@ -44,6 +44,10 @@ public class GameplayManager : MonoBehaviour
     [SerializeField]
     GameObject resetButton;
 
+    //Temp Main Menu Button
+    [SerializeField]
+    GameObject mainMenuButton;
+
     //Countdown Animation
     [SerializeField]
     GameObject countdown;
@@ -127,6 +131,7 @@ public class GameplayManager : MonoBehaviour
 
             case States.Dead:
                 resetButton.SetActive(true);
+                mainMenuButton.SetActive(true);
                 break;
 
         }
