@@ -232,7 +232,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &88710633
 Animator:
   serializedVersion: 5
@@ -314,7 +314,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 88710632}
   m_LocalRotation: {x: -0, y: -0, z: -0.10765446, w: 0.99418837}
-  m_LocalPosition: {x: 6.03, y: -1.04, z: 96.75}
+  m_LocalPosition: {x: 6.03, y: -1.04, z: 98.26}
   m_LocalScale: {x: 2.3323412, y: 2.3323412, z: 2.3323412}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -431,7 +431,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.755
+  m_Volume: 0.039
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -573,8 +573,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8c3bd33dcaab23f469c6767061af75e2, type: 3}
   - {fileID: 8300000, guid: 348a7eb2fd9103a43915bbe42969ba7a, type: 3}
   - {fileID: 8300000, guid: 9ffbc09d77cf50a4eb30442fca997a05, type: 3}
+  - {fileID: 8300000, guid: 1a567b84d4228c94d8ddd1e7a767ef10, type: 3}
+  - {fileID: 8300000, guid: fc943acb120470442bc3da26cc91f3c8, type: 3}
+  - {fileID: 8300000, guid: 8f76da2b43904fb49b9b89bbd7066fab, type: 3}
   ListObjects:
   - {fileID: 7528373584227515301, guid: 6e0fbcf91691ead4686adbc285f172e9, type: 3}
+  - {fileID: 9137737248545523328, guid: e164d4bb9f5923943b1431ca9fb4cc7d, type: 3}
+  - {fileID: 9137737248545523328, guid: e164d4bb9f5923943b1431ca9fb4cc7d, type: 3}
+  - {fileID: 9137737248545523328, guid: e164d4bb9f5923943b1431ca9fb4cc7d, type: 3}
   - {fileID: 9137737248545523328, guid: e164d4bb9f5923943b1431ca9fb4cc7d, type: 3}
   - {fileID: 9137737248545523328, guid: e164d4bb9f5923943b1431ca9fb4cc7d, type: 3}
   scream: {fileID: 8300000, guid: c7951e1930b9b92489e39f8bc90b433d, type: 3}
@@ -859,6 +865,10 @@ PrefabInstance:
     - target: {fileID: 5876040067494919585, guid: d1d128131a61b6347a8825f1bbebbfed, type: 3}
       propertyPath: m_Name
       value: Hands
+      objectReference: {fileID: 0}
+    - target: {fileID: 5876040067494919585, guid: d1d128131a61b6347a8825f1bbebbfed, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1872,9 +1882,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: SeveredHands
       objectReference: {fileID: 0}
+    - target: {fileID: 3358484525038958712, guid: c296a2968545b754cb69b42f3ebc18d4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5455426787858690908, guid: c296a2968545b754cb69b42f3ebc18d4, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

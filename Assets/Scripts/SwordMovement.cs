@@ -14,6 +14,8 @@ public class SwordMovement : MonoBehaviour
 
     private bool canMove = false;
 
+    Vector3 startPos;
+
     Vector3 translationVal = new Vector3(1.5f,-1,0);
 
     Vector3 spin = new Vector3(0,0,-1f);
@@ -26,6 +28,11 @@ public class SwordMovement : MonoBehaviour
 
 
     public bool CanMove { set { canMove = value;} }
+
+    private void Start()
+    {
+        startPos = transform.position;
+    }
 
     // Update is called once per frame
     void Update()
@@ -56,7 +63,7 @@ public class SwordMovement : MonoBehaviour
     /// </summary>
     public void ResetInfo()
     {
-        transform.position = new Vector3(-13,2,10);
+        transform.position = startPos;
         transform.rotation = Quaternion.Euler(0,0,-33);
         
     } 

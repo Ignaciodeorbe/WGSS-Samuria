@@ -13,7 +13,7 @@ public class CrowMovement : MonoBehaviour
     //Sets the position when the object is instantiated
     public void Awake()
     {
-        transform.position = new Vector3(-30,0,25);
+        transform.position = new Vector3(-20,0,25);
         transform.rotation = new Quaternion(0, 180, 0,0);
     }
 

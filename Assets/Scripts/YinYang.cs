@@ -56,17 +56,17 @@ public class YinYang : MonoBehaviour
         if (gameplay.Curve - 5 <= 0)
         {
             //Scale the yin yang larger
-            randomScale = Random.Range(0.19f, 0.25f);
+            randomScale = Random.Range(0.15f, 0.20f);
         }
-        else if (gameplay.Curve - 5 >= 1 && gameplay.Curve - 5 <= 5)
+        else if (gameplay.Curve - 5 >= 1 && gameplay.Curve - 5 <= 3)
         {
             //Scale the yin yang medium
-            randomScale = Random.Range(0.12f, 0.19f);
+            randomScale = Random.Range(0.10f, 0.15f);
         }
         else
         {
             //Scale the yin yang smaller
-            randomScale = Random.Range(0.01f, 0.12f);
+            randomScale = Random.Range(0.01f, 0.10f);
         }
 
         // Set the local scale of the object to the random scale

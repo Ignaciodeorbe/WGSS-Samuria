@@ -78,7 +78,7 @@ public class GameplayManager : MonoBehaviour
     {
         StartCoroutine(CountdownCoroutine());   //Plays Countdown (Ideally should be moved somewhere so it plays before gameplay starts)
         NextLevel();
-        curve = 7;
+        curve = 4;
     }
 
     // Update is called once per frame
@@ -97,7 +97,6 @@ public class GameplayManager : MonoBehaviour
                         audioSource.PlayOneShot(audioSource.clip);
                         if (soundCounter < gameObjectList.Count)
                         {
-                            Debug.Log("I was called!");
                             Instantiate(gameObjectList[soundCounter], new Vector3(-30, 0, 0), Quaternion.identity);
                         }
                         if (soundCounter == gameplaySounds.Count - 1)
