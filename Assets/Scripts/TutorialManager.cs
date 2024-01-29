@@ -5,74 +5,12 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-public delegate void OnGameOver();
-
-public class GameplayManager : MonoBehaviour
+public class Tutorial : GameplayManager
 {
-    //Event for when the sword is caught used for changing states
-    public UnityEvent swordCaught;
-
-    //Sword movement script
-    [SerializeField]
-    protected SwordMovement swordMovementScript;
-
-    //The audio source
-    [SerializeField]
-    protected AudioSource audioSource;
-
-    //Text for the level
-    [SerializeField]
-    Text levelText;
-
-    //Contains all possible sounds in the game
-    [SerializeField]
-    protected List<AudioClip> listSounds = new List<AudioClip>();
-
-    //The sounds that will play per level
-    protected List<AudioClip> gameplaySounds = new List<AudioClip>();
-
-    //List of all moveable objects
-    [SerializeField]
-    protected List<GameObject> ListObjects = new List<GameObject>();
-    protected List<GameObject> gameObjectList = new List<GameObject>();
-
-    //The sound before the sword comes down
-    [SerializeField]
-    protected AudioClip scream;
-
-    //Temp Reset button
-    [SerializeField]
-    GameObject resetButton;
-
-    //Countdown Animation
-    [SerializeField]
-    GameObject countdown;
-
-
-
-    protected float timerScale = 2.3f;
-
-    protected float soundTimer = 1;
-    protected int soundCounter = 0;
-
-    protected float idleTimer = 1.4f;
-
-    int level = 0;
-
-    protected bool started = false;
-
-    protected int curve;
-
-    public int Curve { get { return curve; } }
-
-    protected States currentState;
-
-    public States CurrentState { set { currentState = value; } get { return currentState; } }
 
     // Start is called before the first frame update
     void Start()
-    {
-        StartCoroutine(CountdownCoroutine());   //Plays Countdown (Ideally should be moved somewhere so it plays before gameplay starts)
+    {       
         NextLevel();
         curve = 7;
     }
@@ -90,7 +28,7 @@ public class GameplayManager : MonoBehaviour
                     if (soundTimer < 0)
                     {
 
-                        audioSource.PlayOneShot(audioSource.clip);
+                        //audioSource.PlayOneShot(audioSource.clip);
                         if (soundCounter < gameObjectList.Count)
                         {
                             Debug.Log("I was called!");
@@ -104,7 +42,7 @@ public class GameplayManager : MonoBehaviour
                         else
                         {
                             soundCounter++;
-                            audioSource.clip = gameplaySounds[soundCounter];
+                            //audioSource.clip = gameplaySounds[soundCounter];
                             SetTimer();
                         }
                     }
@@ -126,7 +64,7 @@ public class GameplayManager : MonoBehaviour
 
 
             case States.Dead:
-                resetButton.SetActive(true);
+                //resetButton.SetActive(true);
                 break;
 
         }
@@ -141,9 +79,8 @@ public class GameplayManager : MonoBehaviour
 
     public void NextLevel()
     {
-        level++;
 
-        MakeSounds();
+        //MakeSounds();
         SetTimer();
         started = true;
 
@@ -155,7 +92,7 @@ public class GameplayManager : MonoBehaviour
             curve = 0;
         }
 
-        levelText.text = "Act: " + level;
+        
         currentState = States.Idle;
     }
 
@@ -178,20 +115,5 @@ public class GameplayManager : MonoBehaviour
 
 
     }
-
-    //Method to play the coutdown animation then turn it off
-    IEnumerator CountdownCoroutine()
-    {
-        // Activate the countdown
-        countdown.SetActive(true);
-
-        // Play length of animation
-        float countdownDuration = 2.6f;
-
-        // Wait for the specified duration
-        yield return new WaitForSeconds(countdownDuration);
-
-        // Deactivate the countdown after the animation duration
-        countdown.SetActive(false);
-    }
+ 
 }
