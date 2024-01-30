@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class Tutorial : GameplayManager
 {
+
+    Restart restart = new Restart();
+
+    [SerializeField]
+    Scene gameScene;
 
     // Start is called before the first frame update
     void Start()
@@ -28,23 +34,25 @@ public class Tutorial : GameplayManager
                     if (soundTimer < 0)
                     {
 
-                        //audioSource.PlayOneShot(audioSource.clip);
-                        if (soundCounter < gameObjectList.Count)
-                        {
-                            Debug.Log("I was called!");
-                            Instantiate(gameObjectList[soundCounter], new Vector3(-30, 0, 0), Quaternion.identity);
-                        }
-                        if (soundCounter == gameplaySounds.Count - 1)
-                        {
-                            swordMovementScript.CanMove = true;
-                            audioSource.clip = null;
-                        }
-                        else
-                        {
-                            soundCounter++;
-                            //audioSource.clip = gameplaySounds[soundCounter];
-                            SetTimer();
-                        }
+
+                        audioSource.PlayOneShot(scream);
+                        swordMovementScript.CanMove = true;
+                        audioSource.clip = null;
+
+                      // if (soundCounter < gameObjectList.Count)
+                      // {
+                      //     Debug.Log("I was called!");
+                      //     Instantiate(gameObjectList[soundCounter], new Vector3(-30, 0, 0), Quaternion.identity);
+                      // }
+                      // if (soundCounter == gameplaySounds.Count - 1)
+                      // {
+                      // }
+                      // else
+                      // {
+                      //     soundCounter++;
+                      //     //audioSource.clip = gameplaySounds[soundCounter];
+                      //     SetTimer();
+                      // }
                     }
 
                 }
@@ -58,13 +66,15 @@ public class Tutorial : GameplayManager
                 if (idleTimer < 0)
                 {
                     swordCaught.Invoke();
-                    NextLevel();
+                    SceneManager.LoadScene();
+
+                    //NextLevel();
                 }
                 break;
 
 
             case States.Dead:
-                //resetButton.SetActive(true);
+                restart.RestartGame();
                 break;
 
         }

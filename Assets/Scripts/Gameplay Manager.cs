@@ -42,7 +42,7 @@ public class GameplayManager : MonoBehaviour
 
     //Temp Reset button
     [SerializeField]
-    GameObject resetButton;
+    protected GameObject resetButton;
 
     //Temp Main Menu Button
     [SerializeField]
