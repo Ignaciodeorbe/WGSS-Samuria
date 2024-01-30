@@ -54,7 +54,7 @@ public class GameplayManager : MonoBehaviour
 
 
 
-    protected float timerScale = 2.3f;
+    protected float timerScale = 1.8f;
 
     protected float soundTimer = 1;
     protected int soundCounter = 0;
@@ -149,7 +149,6 @@ public class GameplayManager : MonoBehaviour
 
         MakeSounds();
         SetTimer();
-        started = true;
 
         curve++;
 
@@ -168,10 +167,30 @@ public class GameplayManager : MonoBehaviour
         soundCounter = 0;
         gameplaySounds.Clear();
         gameObjectList.Clear();
-        int randVal = Random.Range(0, listSounds.Count);
+        float randPercent = Random.Range(0f, 1.0f);
+        int extraSoundCount;
 
-        for (int i = 0; i < Random.Range(0, 3); i++)
+        if(randPercent > .65)
         {
+            extraSoundCount = 1;
+        }
+        else if(randPercent > .35) 
+        {
+            extraSoundCount = 2;
+        }
+        else if(randPercent > .1)
+        {
+            extraSoundCount= 0;
+        }
+        else
+        {
+            extraSoundCount = 3;
+        }
+
+
+        for (int i = 0; i < extraSoundCount; i++)
+        {
+            int randVal = Random.Range(0, listSounds.Count);
             gameplaySounds.Add(listSounds[randVal]);
             gameObjectList.Add(ListObjects[randVal]);
         }
@@ -196,6 +215,7 @@ public class GameplayManager : MonoBehaviour
         yield return new WaitForSeconds(countdownDuration);
 
         // Deactivate the countdown after the animation duration
+        started = true;
         countdown.SetActive(false);
     }
 }
