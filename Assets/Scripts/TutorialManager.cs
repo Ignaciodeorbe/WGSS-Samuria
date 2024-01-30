@@ -9,10 +9,9 @@ using UnityEngine.UIElements;
 public class Tutorial : GameplayManager
 {
 
+    // For restating the game
     Restart restart = new Restart();
 
-    [SerializeField]
-    Scene gameScene;
 
     // Start is called before the first frame update
     void Start()
@@ -66,7 +65,7 @@ public class Tutorial : GameplayManager
                 if (idleTimer < 0)
                 {
                     swordCaught.Invoke();
-                    SceneManager.LoadScene();
+                    SceneManager.LoadScene("GameScene");
 
                     //NextLevel();
                 }
