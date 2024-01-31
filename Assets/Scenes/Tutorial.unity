@@ -482,6 +482,8 @@ MonoBehaviour:
   resetButton: {fileID: 2074429610}
   mainMenuButton: {fileID: 0}
   countdown: {fileID: 0}
+  tutorialText: []
+  tutorialTimer: 0.4
 --- !u!212 &403978943 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4177176916723766255, guid: d1d128131a61b6347a8825f1bbebbfed, type: 3}
@@ -1138,10 +1140,10 @@ RectTransform:
   m_Father: {fileID: 1877638552}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -590, y: -356}
-  m_SizeDelta: {x: 160, y: 36.12}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 40.89, y: -116}
+  m_SizeDelta: {x: 81.78, y: 26.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1012067267
 MonoBehaviour:
@@ -1670,7 +1672,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_UpdateRectTransformForStandalone: 0
+  m_UpdateRectTransformForStandalone: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

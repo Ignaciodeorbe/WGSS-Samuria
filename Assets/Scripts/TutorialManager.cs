@@ -69,6 +69,7 @@ public class Tutorial : GameplayManager
                         tutorialTimer -= Time.deltaTime;
 
                         audioSource.PlayOneShot(scream);
+                        scream = null; //Jake added this it stops the ear rape not the best solution
 
                         // Stops the sword for a text box to be displayed
                         if(tutorialTimer < 0)

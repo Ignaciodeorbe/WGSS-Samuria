@@ -419,10 +419,10 @@ RectTransform:
   m_Father: {fileID: 1183470228}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -363.64, y: -291}
-  m_SizeDelta: {x: 200, y: 75}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 86, y: 27.615}
+  m_SizeDelta: {x: 128, y: 44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &588542575
 MonoBehaviour:
@@ -677,7 +677,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_UpdateRectTransformForStandalone: 0
+  m_UpdateRectTransformForStandalone: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -823,10 +823,10 @@ RectTransform:
   m_Father: {fileID: 1183470228}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 363.64, y: -291}
-  m_SizeDelta: {x: 200, y: 75}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -83, y: 27.615}
+  m_SizeDelta: {x: 128, y: 44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1825383945
 MonoBehaviour:
