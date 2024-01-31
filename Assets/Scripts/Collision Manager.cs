@@ -9,12 +9,15 @@ using UnityEngine.Events;
 
 public class CollisionManager : MonoBehaviour
 {
+    //The yingyang
     [SerializeField]
     private YinYang symbol;
 
+    //THe sprite rendeer for hand
     [SerializeField]
     private SpriteRenderer srender_hands;
 
+    //Sprite renderer for the severed hands
     [SerializeField]
     private SpriteRenderer srender_severedHands;
 
@@ -102,11 +105,15 @@ public class CollisionManager : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Resets the info on next level
+    /// </summary>
     public void ResetCollisionInfo()
     {
+        //Resets the hands and the yinyang
         srender_hands.enabled = false;
-        srender_severedHands.enabled = false;
         srender_yinyang.enabled = true;
+        //Makes catching possible
         canCatch = true;
         symbol.RandomPosition(); //Moves position of the symbol each round
     }
