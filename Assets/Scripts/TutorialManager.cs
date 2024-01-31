@@ -75,7 +75,7 @@ public class Tutorial : GameplayManager
                         {
                             swordMovementScript.CanMove = false;
 
-                            // Add text box here -------------------------------------------------
+                            // Add text box here and black over lay  -------------------------------------------------
 
                             // When the user presses space the tutorial will continue
                             if (Input.GetKeyDown(KeyCode.Space))
