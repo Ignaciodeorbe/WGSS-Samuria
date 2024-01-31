@@ -8,8 +8,13 @@ using UnityEngine.UIElements;
 
 public class Tutorial : GameplayManager
 {
+    [SerializeField]
+    List<GameObject> tutorialText = new List<GameObject>();
+    int textIndex = 0;
 
-    List<bool> tutorialText = new List<bool>();
+    [SerializeField]
+    protected float tutorialTimer = 0.4f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -17,10 +22,11 @@ public class Tutorial : GameplayManager
         curve = 7;
         currentState = States.Tutorial;
 
-        for(int i = 0; i < 4; i++)
-        {
-            tutorialText.Add(false);
-        }
+        tutorialText.Add(gameObject);
+        tutorialText.Add(gameObject);
+        tutorialText.Add(gameObject);
+
+
     }
 
     // Update is called once per frame
@@ -34,22 +40,22 @@ public class Tutorial : GameplayManager
             case States.Tutorial:
                 if(Input.GetKeyDown(KeyCode.Space))
                 {
-                    tutorialText[0] = true;
+                    textIndex++;
 
-                }
-                
-                if (Input.GetKeyDown(KeyCode.Space) || tutorialText[0])
-                {
-                    tutorialText[1] = true;
-
-                    if (Input.GetKeyDown(KeyCode.Space) || tutorialText[1])
+                    // Continues the tutorial
+                    if(textIndex >= 3) // <---- switch 3 to tutorialtext.count
                     {
                         NextLevel();
-                        tutorialText[3] = true;
+                    }
 
-
+                    // Shows current dialogue box
+                    else
+                    {
+                        //ShowCurrentText();
                     }
                 }
+                
+               
 
                 break;
 
@@ -60,10 +66,29 @@ public class Tutorial : GameplayManager
 
                     if (soundTimer < 0)
                     {
-
+                        tutorialTimer -= Time.deltaTime;
 
                         audioSource.PlayOneShot(scream);
+
+                        // Stops the sword for a text box to be displayed
+                        if(tutorialTimer < 0)
+                        {
+                            swordMovementScript.CanMove = false;
+
+                            // Add text box here -------------------------------------------------
+
+                            // When the user presses space the tutorial will continue
+                            if (Input.GetKeyDown(KeyCode.Space))
+                            {
+                                tutorialTimer = 10000f;
+                            }
+
+                        }
+                        else
+                        {
                         swordMovementScript.CanMove = true;
+
+                        }
                         audioSource.clip = null;
 
                       // if (soundCounter < gameObjectList.Count)
@@ -150,6 +175,26 @@ public class Tutorial : GameplayManager
         audioSource.clip = gameplaySounds[soundCounter];
 
 
+    }
+
+    /// <summary>
+    /// Displays the current dialogue box
+    /// </summary>
+    public void ShowCurrentText()
+    {
+        for (int i = 0; i < tutorialText.Count; i++)
+        {
+            if (i == textIndex)
+            {
+                // Show the current dialogue box
+                tutorialText[i].SetActive(true);
+            }
+            else
+            {
+                // Hide other dialogue boxes
+                tutorialText[i].SetActive(false);
+            }
+        }
     }
  
 }
