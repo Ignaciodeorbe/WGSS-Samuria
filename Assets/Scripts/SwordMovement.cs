@@ -12,21 +12,24 @@ public class SwordMovement : MonoBehaviour
     [SerializeField]
     float rotationSpeed = 0.25f;
 
+    //If the sword can move or not
     private bool canMove = false;
 
+    //Starting pos
     Vector3 startPos;
 
+    //THe values to translate
     Vector3 translationVal = new Vector3(1.5f,-1,0);
 
+    //THe spin value
     Vector3 spin = new Vector3(0,0,-1f);
 
-    int curve = 0;
-
+    //Gets and sets the translation speed of the sword
     public int TranslationSpeed { get { return translationSpeed; } set { translationSpeed = value; } }
     
-    public float RotationSpeed { set { rotationSpeed = value; } }
 
 
+    //Sets canMove bool
     public bool CanMove { set { canMove = value;} }
 
     private void Start()
@@ -59,7 +62,7 @@ public class SwordMovement : MonoBehaviour
 
 
     /// <summary>
-    /// Resets the position of the sword and makes it so it
+    /// Resets the position of the sword and rotation
     /// </summary>
     public void ResetInfo()
     {
