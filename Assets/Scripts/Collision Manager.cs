@@ -42,6 +42,10 @@ public class CollisionManager : MonoBehaviour
     [SerializeField]
     GameObject bloodSplatter; //Owen Addition
 
+    [SerializeField]
+    Tutorial tutorialManager; // Ignacio Addition-- for determining if tutorial is active
+
+
 
     public bool CanCatch { set { canCatch = value; }  get { return canCatch; } }
 
@@ -60,11 +64,14 @@ public class CollisionManager : MonoBehaviour
             srender_sword.color= Color.white;
             manager.CurrentState = States.SwordClapped;
         }
-        else if(Input.GetKeyDown(KeyCode.Space))
+        else if(Input.GetKeyDown(KeyCode.Space) && tutorialManager == null)
         {
+            
             srender_hands.enabled = true;
             srender_yinyang.enabled = false;
             canCatch= false;
+
+            
         }
 
         if(!bColi2d_sword.IsTouching(cirColi2d_yinyang) && srender_sword.color == Color.red)
@@ -102,6 +109,18 @@ public class CollisionManager : MonoBehaviour
         srender_yinyang.enabled = true;
         canCatch = true;
         symbol.RandomPosition(); //Moves position of the symbol each round
+    }
+
+    /// <summary>
+    /// Reset specifically for the tutorial, doesn't include the random location moving
+    /// </summary>
+    public void ResetTutorialCollisionInfo()
+    {
+        srender_hands.enabled = false;
+        srender_severedHands.enabled = false;
+        bloodSplatter.SetActive(false);
+        srender_yinyang.enabled = true;
+        canCatch = true;
     }
 }
 

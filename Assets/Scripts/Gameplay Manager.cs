@@ -7,6 +7,15 @@ using UnityEngine.UIElements;
 
 public delegate void OnGameOver();
 
+// Game states
+public enum States
+{
+    Idle,
+    SwordClapped,
+    Dead,
+    Tutorial
+}
+
 public class GameplayManager : MonoBehaviour
 {
     //Event for when the sword is caught used for changing states

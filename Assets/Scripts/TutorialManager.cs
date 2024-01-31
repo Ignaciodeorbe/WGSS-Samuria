@@ -9,22 +9,50 @@ using UnityEngine.UIElements;
 public class Tutorial : GameplayManager
 {
 
-    // For restating the game
-    Restart restart = new Restart();
-
+    List<bool> tutorialText = new List<bool>();
 
     // Start is called before the first frame update
     void Start()
     {       
-        NextLevel();
         curve = 7;
+        currentState = States.Tutorial;
+
+        for(int i = 0; i < 4; i++)
+        {
+            tutorialText.Add(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+     
+
+
         switch (currentState)
         {
+            case States.Tutorial:
+                if(Input.GetKeyDown(KeyCode.Space))
+                {
+                    tutorialText[0] = true;
+
+                }
+                
+                if (Input.GetKeyDown(KeyCode.Space) || tutorialText[0])
+                {
+                    tutorialText[1] = true;
+
+                    if (Input.GetKeyDown(KeyCode.Space) || tutorialText[1])
+                    {
+                        NextLevel();
+                        tutorialText[3] = true;
+
+
+                    }
+                }
+
+                break;
+
             case States.Idle:
                 if (started)
                 {
@@ -62,6 +90,7 @@ public class Tutorial : GameplayManager
             case States.SwordClapped:
                 idleTimer -= Time.deltaTime;
 
+
                 if (idleTimer < 0)
                 {
                     swordCaught.Invoke();
@@ -73,7 +102,13 @@ public class Tutorial : GameplayManager
 
 
             case States.Dead:
-                restart.RestartGame();
+                idleTimer -= Time.deltaTime;
+
+                if (idleTimer < 0)
+                {
+                    swordCaught.Invoke();
+                    NextLevel();
+                }
                 break;
 
         }
@@ -89,17 +124,9 @@ public class Tutorial : GameplayManager
     public void NextLevel()
     {
 
-        //MakeSounds();
+        MakeSounds();
         SetTimer();
         started = true;
-
-        curve++;
-
-        if (curve % swordMovementScript.TranslationSpeed == 0)
-        {
-            swordMovementScript.TranslationSpeed++;
-            curve = 0;
-        }
 
         
         currentState = States.Idle;

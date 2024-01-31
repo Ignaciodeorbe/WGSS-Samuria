@@ -2,12 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-    public enum States
-    {
-       Idle,
-       SwordClapped,
-       Dead
-    }
+
 
 public class Manager : MonoBehaviour
 {
