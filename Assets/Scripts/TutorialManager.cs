@@ -13,18 +13,37 @@ public class Tutorial : GameplayManager
     int textIndex = 0;
 
     [SerializeField]
-    protected float tutorialTimer = 0.4f;
+    float tutorialTimer = 0.4f;
+
+    [SerializeField]
+    SpriteRenderer textBox;
+
+    [SerializeField]
+    SpriteRenderer bgFade;
+
+    [SerializeField]
+    SpriteRenderer spaceToContinueText;
+
+    [SerializeField]
+    SpriteRenderer finalText;
+
+    [SerializeField]
+    int tutorialCounter = 3;
+
+    [SerializeField]
+    GameObject extraTutorialText;
 
 
     // Start is called before the first frame update
     void Start()
     {       
         curve = 7;
-        currentState = States.Tutorial;
+        currentState = States.Tutorial;        
 
-        tutorialText.Add(gameObject);
-        tutorialText.Add(gameObject);
-        tutorialText.Add(gameObject);
+        bgFade.enabled = false;
+        finalText.enabled = false;
+
+
 
 
     }
@@ -43,15 +62,20 @@ public class Tutorial : GameplayManager
                     textIndex++;
 
                     // Continues the tutorial
-                    if(textIndex >= 3) // <---- switch 3 to tutorialtext.count
+                    if(textIndex >= tutorialText.Count) 
                     {
+                        textBox.enabled = false;
+                        spaceToContinueText.enabled = false;
+
+                        ShowCurrentText();
+
                         NextLevel();
                     }
 
                     // Shows current dialogue box
                     else
                     {
-                        //ShowCurrentText();
+                        ShowCurrentText();
                     }
                 }
                 
@@ -75,13 +99,24 @@ public class Tutorial : GameplayManager
                         if(tutorialTimer < 0)
                         {
                             swordMovementScript.CanMove = false;
+                            
+                            // Enables tutorial items
+                            textBox.enabled = true;
+                            bgFade.enabled = true;
+                            spaceToContinueText.enabled = true;
+                            finalText.enabled = true;                          
 
-                            // Add text box here and black over lay  -------------------------------------------------
 
                             // When the user presses space the tutorial will continue
                             if (Input.GetKeyDown(KeyCode.Space))
                             {
+                                // Disables tutorial items
                                 tutorialTimer = 10000f;
+                                bgFade.enabled = false;
+                                textBox.enabled = false;
+                                spaceToContinueText.enabled = false;
+                                finalText.enabled= false;
+
                             }
 
                         }
@@ -121,8 +156,6 @@ public class Tutorial : GameplayManager
                 {
                     swordCaught.Invoke();
                     SceneManager.LoadScene("GameScene");
-
-                    //NextLevel();
                 }
                 break;
 
@@ -130,9 +163,17 @@ public class Tutorial : GameplayManager
             case States.Dead:
                 idleTimer -= Time.deltaTime;
 
+                // Display text if they miss 4 or more times
+                if (tutorialCounter <= 0)
+                {
+                    textBox.enabled = true;
+                    extraTutorialText.SetActive(true);
+                }
+
                 if (idleTimer < 0)
                 {
                     swordCaught.Invoke();
+                    tutorialCounter--;
                     NextLevel();
                 }
                 break;
