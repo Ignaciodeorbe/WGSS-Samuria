@@ -25,7 +25,7 @@ public class Tutorial : GameplayManager
     SpriteRenderer spaceToContinueText;
 
     [SerializeField]
-    SpriteRenderer finalText;
+    GameObject finalText;
 
     [SerializeField]
     int tutorialCounter = 3;
@@ -41,7 +41,7 @@ public class Tutorial : GameplayManager
         currentState = States.Tutorial;        
 
         bgFade.enabled = false;
-        finalText.enabled = false;
+        finalText.SetActive(false);
 
 
 
@@ -104,7 +104,7 @@ public class Tutorial : GameplayManager
                             textBox.enabled = true;
                             bgFade.enabled = true;
                             spaceToContinueText.enabled = true;
-                            finalText.enabled = true;                          
+                            finalText.SetActive(true);
 
 
                             // When the user presses space the tutorial will continue
@@ -115,7 +115,7 @@ public class Tutorial : GameplayManager
                                 bgFade.enabled = false;
                                 textBox.enabled = false;
                                 spaceToContinueText.enabled = false;
-                                finalText.enabled= false;
+                                finalText.SetActive(false);
 
                             }
 
