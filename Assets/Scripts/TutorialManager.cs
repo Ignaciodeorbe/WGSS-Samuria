@@ -22,7 +22,7 @@ public class Tutorial : GameplayManager
     SpriteRenderer bgFade;
 
     [SerializeField]
-    SpriteRenderer spaceToContinueText;
+    GameObject spaceToContinueText;
 
     [SerializeField]
     GameObject finalText;
@@ -65,7 +65,7 @@ public class Tutorial : GameplayManager
                     if(textIndex >= tutorialText.Count) 
                     {
                         textBox.enabled = false;
-                        spaceToContinueText.enabled = false;
+                        spaceToContinueText.SetActive(false);
 
                         ShowCurrentText();
 
@@ -103,7 +103,7 @@ public class Tutorial : GameplayManager
                             // Enables tutorial items
                             textBox.enabled = true;
                             bgFade.enabled = true;
-                            spaceToContinueText.enabled = true;
+                            spaceToContinueText.SetActive(true);
                             finalText.SetActive(true);
 
 
@@ -114,7 +114,7 @@ public class Tutorial : GameplayManager
                                 tutorialTimer = 10000f;
                                 bgFade.enabled = false;
                                 textBox.enabled = false;
-                                spaceToContinueText.enabled = false;
+                                spaceToContinueText.SetActive(false);
                                 finalText.SetActive(false);
 
                             }
