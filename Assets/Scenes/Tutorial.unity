@@ -238,15 +238,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8894764646523455990, guid: b35c93ea992f6bd43b3555607efb0b65, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.88
+      value: -11.14
       objectReference: {fileID: 0}
     - target: {fileID: 8894764646523455990, guid: b35c93ea992f6bd43b3555607efb0b65, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.05
+      value: 4.9
       objectReference: {fileID: 0}
     - target: {fileID: 8894764646523455990, guid: b35c93ea992f6bd43b3555607efb0b65, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 94.3
+      value: 101
       objectReference: {fileID: 0}
     - target: {fileID: 8894764646523455990, guid: b35c93ea992f6bd43b3555607efb0b65, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1415,12 +1415,16 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 497989867399239702, guid: e371448ec60f4d04885ede66d7875979, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 26.312792
+      objectReference: {fileID: 0}
+    - target: {fileID: 497989867399239702, guid: e371448ec60f4d04885ede66d7875979, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 497989867399239702, guid: e371448ec60f4d04885ede66d7875979, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.25120455
+      value: 0.3076
       objectReference: {fileID: 0}
     - target: {fileID: 497989867399239702, guid: e371448ec60f4d04885ede66d7875979, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1742,7 +1746,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press Space to Continue
+  m_Text: Tap/Press Space to Continue
 --- !u!222 &1015972726
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2076,12 +2080,16 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5178747406553143437, guid: f1e914bb4f8b77b4894832079d9daf09, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 26.367
+      objectReference: {fileID: 0}
+    - target: {fileID: 5178747406553143437, guid: f1e914bb4f8b77b4894832079d9daf09, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 5178747406553143437, guid: f1e914bb4f8b77b4894832079d9daf09, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.45
+      value: 0.0643
       objectReference: {fileID: 0}
     - target: {fileID: 5178747406553143437, guid: f1e914bb4f8b77b4894832079d9daf09, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2541,8 +2549,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Press SPACE When The Blade Is Touching The Yin Yang Symbol To Catch The
-    Blade '
+  m_Text: 'TAP/Press SPACE When The Blade Is Touching The Yin Yang Symbol To Catch
+    The Blade '
 --- !u!222 &1730804501
 CanvasRenderer:
   m_ObjectHideFlags: 0

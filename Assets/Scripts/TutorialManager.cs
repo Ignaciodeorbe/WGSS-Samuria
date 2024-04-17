@@ -57,7 +57,7 @@ public class Tutorial : GameplayManager
         switch (currentState)
         {
             case States.Tutorial:
-                if(Input.GetKeyDown(KeyCode.Space))
+                if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
                 {
                     textIndex++;
 
@@ -108,7 +108,7 @@ public class Tutorial : GameplayManager
 
 
                             // When the user presses space the tutorial will continue
-                            if (Input.GetKeyDown(KeyCode.Space))
+                            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
                             {
                                 // Disables tutorial items
                                 tutorialTimer = 10000f;

@@ -4,6 +4,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -58,7 +59,7 @@ public class CollisionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (bColi2d_sword.IsTouching(cirColi2d_yinyang) && Input.GetKeyDown(KeyCode.Space) && canCatch)
+        if (bColi2d_sword.IsTouching(cirColi2d_yinyang) && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
         {
             movement.CanMove = false;
             srender_hands.enabled = true;
@@ -67,7 +68,7 @@ public class CollisionManager : MonoBehaviour
             srender_sword.color= Color.white;
             manager.CurrentState = States.SwordClapped;
         }
-        else if(Input.GetKeyDown(KeyCode.Space) && tutorialManager == null)
+        else if((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && tutorialManager == null)
         {
             
             srender_hands.enabled = true;
